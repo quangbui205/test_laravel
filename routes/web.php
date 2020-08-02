@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('/login', function (){
     return view('login');
 });
-
 Route::post('/login', function (\Illuminate\Http\Request $request){
     if(($request->username == 'admin') && ($request->password=='admin'))
         {
@@ -28,6 +27,14 @@ Route::post('/login', function (\Illuminate\Http\Request $request){
         }
     else
     {
-        return view('login');
+        return view('loginFail');
     }
+});
+
+Route::get('/caculation',function (){
+    return view('math');
+});
+Route::post('/caculation', function (\Illuminate\Http\Request $request){
+    $total = $request->num1 + $request->num2;
+    return view('showCacula',compact(['total']));
 });
