@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    echo "hello World";
+    return view('home');
+});
+
+Route::get('/login', function (){
+    return view('login');
+});
+
+Route::post('/login', function (\Illuminate\Http\Request $request){
+    if(($request->username == 'admin') && ($request->password=='admin'))
+        {
+            return view('home');
+        }
+    else
+    {
+        return view('login');
+    }
 });
