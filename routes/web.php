@@ -38,3 +38,6 @@ Route::post('/caculation', 'CaculController@cacul')->name('cacul.cacul');
 Route::get('loginAdmin',function (){
    return view('admin.login');
 });
+Route::get('dashboard',function (){
+    return view('admin/dashboard');
+});
