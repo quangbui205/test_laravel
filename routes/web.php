@@ -33,8 +33,8 @@ Route::post('/login', function (\Illuminate\Http\Request $request){
 
 Route::get('/caculation',function (){
     return view('math');
-});
-Route::post('/caculation', function (\Illuminate\Http\Request $request){
-    $total = $request->num1 + $request->num2;
-    return view('showCacula',compact(['total']));
+})->name('input.number');
+Route::post('/caculation', 'CaculController@cacul')->name('cacul.cacul');
+Route::get('loginAdmin',function (){
+   return view('admin.login');
 });

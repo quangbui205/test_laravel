@@ -9,5 +9,6 @@
 </head>
 <body>
 {{$total}}
+<a href="{{route('input.number')}}"><p>Input</p></a>
 </body>
 </html>
