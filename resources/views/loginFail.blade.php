@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1 style="text-align: center">Login Fail</h1>
-<a href="{{ route('login') }}">Back</a>
+<a href="">Back</a>
 </body>
 </html>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Đăng Nhập Người Dùng</h1>
-<form action="/login" method="post">
+<form action="{{route('login.checkLogin')}}" method="post">
     @csrf
     <p>
         <input type="text" name="username" placeholder="Tên đăng nhập">

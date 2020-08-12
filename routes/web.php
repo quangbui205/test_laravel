@@ -17,27 +17,18 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function (){
-    return view('login');
-}) -> name('login');
-Route::post('/login', function (\Illuminate\Http\Request $request){
-    if(($request->username == 'admin') && ($request->password=='admin'))
-        {
-            return view('home');
-        }
-    else
-    {
-        return view('loginFail');
-    }
-});
+
 
 Route::get('/caculation',function (){
     return view('math');
-})->name('input.number');
+})->name('input.number')->middleware('auth');
 Route::post('/caculation', 'CaculController@cacul')->name('cacul.cacul');
-Route::get('loginAdmin',function (){
-   return view('admin.login');
-});
+Route::get('loginAdmin','LoginController@login')->name('login.login');
+Route::post('loginUser','LoginController@checkLogin')->name('login.checkLogin');
 Route::get('dashboard',function (){
     return view('admin/dashboard');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
